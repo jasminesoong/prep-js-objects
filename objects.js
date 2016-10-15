@@ -8,9 +8,11 @@
  */
 
 var plainBox = {};
+
 plainBox.color = "white";
 plainBox.size = 10;
 plainBox.contents = [];
+
 console.log('plainBox: ', plainBox);
 
 /*
@@ -29,12 +31,14 @@ console.log('plainBox: ', plainBox);
  */
 
 var stockCar = {
+
 	model: "Chevy",
 	year: 1957,
 	automaticTransmission: true,
 	driver: null,
 	passengers: []
 }
+
 console.log('stockCar: ', stockCar)
 
 /*
@@ -52,6 +56,17 @@ console.log('stockCar: ', stockCar)
  */
 
 var plainPerson = {};
+
+function buildPerson(person, nameString, age){
+	person.name = nameString;
+	person.age = age;
+	return person;
+}
+
+var completePerson = buildPerson(plainPerson, "Ben", 32);
+console.log(completePerson);
+console.log(completePerson.name);
+console.log(completePerson.age);
 
 
 /*
@@ -77,6 +92,70 @@ var plainPerson = {};
             ...
  */
 
+var arrayOfObjects = [
+  {
+    id: 0,
+    date: "Monday Jan 25 2015 2:01 PM",
+    total: "279.38"
+  },
+  {
+    id: 1,
+    date: "Monday Jan 27 2015 11:31 AM",
+    total: "79.80"
+  },
+  {
+    id: 2,
+    date: "Monday Feb 1 2015 7:56 AM",
+    total: "15.62"
+  },
+  {
+    id: 3,
+    date: "Monday Feb 1 2015 9:43 AM",
+    total: "19.83"
+  },
+  {
+    id: 4,
+    date: "Monday Feb 1 2015 11:08 PM",
+    total: "56.69"
+  },
+  {
+    id: 5,
+    date: "Monday Feb 13 2015 10:22 AM",
+    total: "137.92"
+  },
+  {
+    id: 6,
+    date: "Monday Feb 14 2015 6:54 PM",
+    total: "938.65"
+  },
+  {
+    id: 7,
+    date: "Monday Feb 14 2015 7:17 PM",
+    total: "43.77"
+  },
+  {
+    id: 8,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "28.54"
+  },
+  {
+    id: 9,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "194.33"
+  }
+]
+
+function printProcessedOrders(orders){
+	for (var i = 0; i<orders.length; i++){
+	console.log("=====");
+	console.log("id: " + orders[i].id);
+	console.log("purchase date: " + orders[i].date);
+	console.log("purchase total: " + orders[i].total);
+	}
+	return orders;
+}
+
+printProcessedOrders(arrayOfObjects);
 
 /*
     # Addition with an object
@@ -89,6 +168,32 @@ var plainPerson = {};
         Go ahead and create some more objects and pass them to this function. Have fun with it.
 */
 
+var sumObj = {
+	a: 2,
+	b: 4,
+	result: undefined
+}
+
+var sumObj2 = {
+	a: "Hello ",
+	b: "Kitty",
+	result: undefined
+}
+
+var sumObj3 = {
+	a: "Cookie ",
+	b: 88,
+	result: undefined
+}
+
+function objectAddition(object){
+	object.result = object.a + object.b;
+	return object;
+}
+
+console.log(objectAddition(sumObj));
+console.log(objectAddition(sumObj2));
+console.log(objectAddition(sumObj3));
 
 /*
     # Print sum function and add as new key-value
@@ -104,6 +209,12 @@ var plainPerson = {};
         Invoke this function and pass in your object. Further test by changing the values of the object being passed in or **create more** objects and invoke your function multiple times.
  */
 
+function printObj(object){
+	object.output = object.a + " + " + object.b + " = " + object.result;
+	return object.output;
+
+}
+console.log(printObj(sumObj));
 
 /*
     # Putting stuff in `plainBox`
@@ -112,6 +223,15 @@ var plainPerson = {};
         Invoke your function and pass in your object (which should be `plainBox`), store the result to a variable named plainBoxResult and use `console.log` to inspect your results.
  */
 
+function putInPlainBox(object){
+	for (i = 1; i<=10; i++){
+	var ran = Math.floor((Math.random()) * 100) + 1; /*to create random numbers use Math.floor((Math.random()) * number limit) + 1*/
+	object.contents.push(ran);
+	}
+	return object;
+}
+var plainBoxResult = putInPlainBox(plainBox);
+console.log(plainBoxResult.contents);
 
 /*
     # Detecting transmission
@@ -122,6 +242,16 @@ var plainPerson = {};
         Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
 
+function detectingTransmission(object){
+	if (automaticTransmission = true){
+		return true}
+	else {
+		return false}
+
+}
+
+var isAutomaticTransmission = detectingTransmission(stockCar);
+console.log(isAutomaticTransmission);
 
 /*
     # Who's driving this thing?!
@@ -132,6 +262,13 @@ var plainPerson = {};
         Invoke your function and pass in your objects, store the result to a variable named stockCarWithDriver, and inspect your results. Consider using `plainPerson` as your driver.
  */
 
+function addDriver(car, person){
+    car.driver = person;
+    return car;
+}
+
+var stockCarWithDriver = addDriver(stockCar, "Ben");
+console.log(stockCarWithDriver);
 
 /*
     # Final Boss
@@ -166,3 +303,11 @@ var plainPerson = {};
         'Victor, age 19, is riding dirty!'
  */
 
+var passengerList = ['Jon', 'Jason', 'Tony', 'Joe', 'Jesse', 'Nigel', 'Kelli', 'Marifel', 'Victor'];
+var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
+
+function addPassengers(car, names, ages){
+    for (i = 0; i < car.length; i++){
+    return car.passengers = buildPerson(i)
+    }
+}
